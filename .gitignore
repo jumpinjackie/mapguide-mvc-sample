@@ -1,0 +1,5 @@
+/packages
+/Sheboygan/bin
+/Sheboygan/obj
+/Sheboygan/Sheboygan.csproj.user
+*.suo
