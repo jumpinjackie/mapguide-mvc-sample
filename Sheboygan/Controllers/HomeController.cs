@@ -13,5 +13,11 @@ namespace Sheboygan.Controllers
         {
             return View();
         }
+
+        // GET: Overview
+        public ActionResult Overview()
+        {
+            return View();
+        }
     }
 }
