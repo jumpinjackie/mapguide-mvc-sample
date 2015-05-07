@@ -124,7 +124,6 @@
     <Content Include="Scripts\npm.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Query\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\DwfPlot\Index.cshtml" />
     <Content Include="Views\Search\Results.cshtml" />
@@ -134,7 +133,6 @@
     <Compile Include="Controllers\DwfPlotController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MgBaseController.cs" />
-    <Compile Include="Controllers\QueryController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

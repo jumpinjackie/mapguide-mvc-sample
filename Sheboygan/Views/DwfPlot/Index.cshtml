@@ -12,18 +12,19 @@
     <link rel="stylesheet" href="@Url.Content("~/Content/taskpane.css")" />
     <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")" />
     <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-theme.min.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
     <script type="text/javascript">
 
     var session = "@Model.Session";
     var mapname = "@Model.MapName";
 
     function PlotCurrentView() {
-        var url = "@Url.Action("CurrentView")?session=" + session + "&mapname=" + mapname;
+        var url = "@Url.Action("CurrentView")?session=" + session + "&mapname=" + mapname + "&uselayout=" + $("#chkUsePrintLayoutForView").is(":checked");
         window.open(url);
     }
 
     function PlotAtScale() {
-        var url = "@Url.Action("AtScale")?session=" + session + "&mapname=" + mapname;
+        var url = "@Url.Action("AtScale")?session=" + session + "&mapname=" + mapname + "&uselayout=" + $("#chkUsePrintLayoutForScale").is(":checked") + "&scale=" + $("#scale").val();
         window.open(url);
     }
 
