@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h3>Setup</h3>
-        <p>Select the Sheboygan package file</p>
+        <p>Select the Sheboygan package file. If the Sheboygan package has been loaded, but the sample layouts are not you can skip specifying the package file and just click <strong>Submit</strong> with Administrator credentials</p>
         @using (Html.BeginForm("LoadSampleData", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <div class="form-group">
