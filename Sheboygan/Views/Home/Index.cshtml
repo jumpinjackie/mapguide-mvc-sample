@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Sheboygan.Models.HomeViewModel
+@{
     Layout = null;
 }
 
@@ -8,7 +9,6 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>MapGuide ASP.net MVC Example</title>
-    <link rel="stylesheet" href="@Url.Content("~/Content/taskpane.css")" />
     <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")" />
     <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-theme.min.css")" />
 </head>
@@ -22,6 +22,19 @@
                 <li>You have loaded the Sheboygan Sample data set using the MapGuide Site Administrator</li>
                 <li>You have loaded the sample resources required by this application</li>
             </ol>
+
+            @if (!Model.HasSampleResources)
+            {
+                <div class="alert alert-warning">
+                    <p>WARNING: Could not find one or more of the required sample resources. @Html.ActionLink("Click here", "Setup") to set up the required data</p>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-success">
+                    <p>Found the sample resources. All good to run the samples below</p>
+                </div>
+            }
         </div>
     </div>
 
@@ -31,14 +44,15 @@
             <div class="col-md-6">
                 <h2>AJAX Viewer</h2>
                 <p>Launch this sample application using the AJAX Viewer</p>
-                <p><a class="btn btn-default" href="/mapguide/mapviewerajax/?WEBLAYOUT=Library://Samples/Sheboygan/Layouts/SheboyganAspMvc.WebLayout&USERNAME=Anonymous" role="button">Run &raquo;</a></p>
+                <p><a class="btn btn-default" href="/mapguide/mapviewerajax/?WEBLAYOUT=@Model.AjaxLayout&USERNAME=Anonymous" role="button">Run &raquo;</a></p>
             </div>
             <div class="col-md-6">
                 <h2>Fusion</h2>
                 <p>Launch this sample application using the Fusion Viewer</p>
-                <p><a class="btn btn-default" href="/mapguide/fusion/templates/mapguide/slate/index.html?ApplicationDefinition=Library://Samples/Sheboygan/FlexibleLayouts/SheboyganAspMvc.ApplicationDefinition" role="button">Run &raquo;</a></p>
+                <p><a class="btn btn-default" href="/mapguide/fusion/templates/mapguide/slate/index.html?ApplicationDefinition=@Model.FlexLayout" role="button">Run &raquo;</a></p>
             </div>
         </div>
     </div> <!-- /container -->
 </body>
 </html>
+

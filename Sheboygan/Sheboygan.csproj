@@ -14,7 +14,7 @@
     <RootNamespace>Sheboygan</RootNamespace>
     <AssemblyName>Sheboygan</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -95,6 +95,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SheboyganAspMvc.ApplicationDefinition.xml" />
+    <Content Include="App_Data\SheboyganAspMvc.WebLayout.xml" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -138,6 +140,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DwfPlotViewModel.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\MapGuideViewModelBase.cs" />
     <Compile Include="Models\SearchResultViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +150,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Overview.cshtml" />
+    <Content Include="Views\Home\Setup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -170,7 +174,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55139</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55085/</IISUrl>
+          <IISUrl>http://localhost/SheboyganSample</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
