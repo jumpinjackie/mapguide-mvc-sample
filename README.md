@@ -14,3 +14,5 @@ All other requirements will be pulled down via NuGet when you open/build the sol
 # Notes
 
 This sample project will create and run on a local IIS virtual directory, so you will generally need to run Visual Studio as an administrator.
+
+Also ensure the sample project runs under the same IIS application pool as MapGuide
