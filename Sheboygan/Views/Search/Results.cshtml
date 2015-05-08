@@ -13,21 +13,21 @@
     <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")" />
     <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-theme.min.css")" />
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/viewerapi.js")"></script>
     <script type="text/javascript">
 
-        function getViewer() {
-            return parent.parent;
-        }
-
         var ZOOM_SCALE = 800.0;
+        var viewer = null;
 
         $(function () {
+            viewer = new ViewerAPI();
+
             $("body").on("click", ".zoom-action", function (e) {
                 var el = $(e.currentTarget);
                 var x = parseFloat(el.attr("data-zoom-x"));
                 var y = parseFloat(el.attr("data-zoom-y"));
 
-                getViewer().ZoomToView(x, y, ZOOM_SCALE);
+                viewer.zoomToView(x, y, ZOOM_SCALE);
             });
             $("body").on("click", ".select-action", function (e) {
                 var el = $(e.currentTarget);
@@ -35,10 +35,10 @@
                 $.ajax({
                     type: "POST",
                     url: "@Url.Action("SelectFeature")",
-                    dataType: 'json',
+                    dataType: 'text', //Not xml, otherwise this is parsed as an XML document
                     data: { id: id, session: "@Model.Session", mapname: "@Model.MapName" }
-                }).done(function () {
-                    getViewer().Refresh();
+                }).done(function (res) {
+                    viewer.setSelectionXml(res);
                 })
                 .fail(function (res) {
                     alert("Failed to select feature");

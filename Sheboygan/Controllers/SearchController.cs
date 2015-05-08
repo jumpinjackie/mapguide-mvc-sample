@@ -48,18 +48,20 @@ namespace Sheboygan.Controllers
             MgFeatureReader reader = layer.SelectFeatures(query);
             MgSelection selection = new MgSelection(map, "");
             MgResourceService resSvc = (MgResourceService)conn.CreateService(MgServiceType.ResourceService);
+            string result = "";
             try
             {
                 selection.Open(resSvc, input.MapName);
+                selection.FromXml(""); //Clear existing
                 selection.AddFeatures(layer, reader, 0);
-                selection.Save(resSvc);
+                result = selection.ToXml();
             }
             finally
             {
                 reader.Close();
             }
 
-            return Content("{ \"updated\": true }", MgMimeType.Json);
+            return Content(result, MgMimeType.Xml);
         }
 
         // GET: Search
