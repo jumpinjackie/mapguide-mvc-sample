@@ -9,10 +9,8 @@ This is a work in progress and does not represent all of the existing .net code 
  * MapGuide Open Source 2.6 (64-bit)
  * Visual Studio 2013 Community or higher
 
-All other requirements will be pulled down via NuGet
+All other requirements will be pulled down via NuGet when you open/build the solution for the first time
 
 # Notes
 
-When debugging ensure you are using 64-bit IIS express. In VS you can find this option under
-
- Tools - Options - Projects and Solutions - Web Projects - Use the 64 bit version of IIS Express
+This sample project will create and run on a local IIS virtual directory, so you will generally need to run Visual Studio as an administrator.
